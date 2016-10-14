@@ -1,21 +1,21 @@
 export default class Node {
     constructor(name, edges) {
         this.name = name;
-        this.edges = edges;
+        this.edges = edges || [];
         this.distance = Infinity;
         this.permanent = false;
     }
 
     addEdge(edge) {
-        edges.push(edge);
+        this.edges.push(edge);
     }
 }
 
 export class NodeArray {
     static get(list, name) {
-        for (node in this) {
-            if (node.name === name) {
-                return node;
+        for (var i = 0; i < list.length; i++) {
+            if (list[i].name == name) {
+                return list[i];
             }
         }
         return undefined;

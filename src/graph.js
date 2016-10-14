@@ -13,12 +13,12 @@ export default class Graph {
     }
 
     buildGraph() {
-        for (edge in this.edges) {
-            let vert1 = NodeArray.get(nodes, edge.start);
-            let vert2 = NodeArray.get(nodes, edge.end);
+        for (let i = 0; i < this.edges.length; i++) {
+            let vert1 = NodeArray.get(this.nodes, this.edges[i].start);
+            let vert2 = NodeArray.get(this.nodes, this.edges[i].end);
 
-            vert1.addEdge(new Edge(null, vert2, edge.weight));
-            vert2.addEdge(new Edge(null, vert1, edge.weight));
+            vert1.addEdge(new Edge(null, vert2, this.edges[i].weight));
+            vert2.addEdge(new Edge(null, vert1, this.edges[i].weight));
         }
     }
 }
