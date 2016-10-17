@@ -4,6 +4,7 @@ export default class Node {
         this.edges = edges || [];
         this.distance = Infinity;
         this.permanent = false;
+        this.previous = null;
     }
 
     addEdge(edge) {
@@ -23,7 +24,7 @@ export class NodeArray {
 
     static sortByDist(list) {
         list.sort((a, b) => {
-            return a.distance - b.distance;
+            return a.permanent ? 1 : b.permanent ? -1 : a.distance - b.distance;
         });
     }
 
